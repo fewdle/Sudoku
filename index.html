@@ -25,8 +25,8 @@
             background: white;
             border-radius: 10px;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-            padding: 30px;
-            max-width: 500px;
+            padding: 20px;
+            max-width: 460px;
             width: 100%;
         }
 
@@ -76,25 +76,34 @@
         .puzzle-grid {
             display: grid;
             grid-template-columns: repeat(9, 1fr);
-            gap: 2px;
+            gap: 1px;
             background: #333;
-            padding: 2px;
-            margin: 20px 0;
+            padding: 1px;
+            margin: 16px auto;
             border-radius: 5px;
             overflow: hidden;
+            /* Make the grid responsive: constrain width and keep square */
+            width: 100%;
+            max-width: 360px; /* tweak to fit comfortably on mobile */
+            aspect-ratio: 1 / 1;
         }
 
         .cell {
-            aspect-ratio: 1;
+            /* let the grid cell size control dimensions; ensure input fills the space */
+            width: 100%;
+            height: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
             background: white;
-            font-size: 18px;
+            font-size: calc(12px + 1vmin);
             font-weight: bold;
             border: none;
             cursor: pointer;
-            transition: all 0.1s ease;
+            transition: all 0.08s ease;
+            padding: 0;
+            box-sizing: border-box;
+            text-align: center;
         }
 
         .cell:hover {
